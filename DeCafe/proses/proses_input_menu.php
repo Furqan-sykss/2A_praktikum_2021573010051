@@ -52,7 +52,7 @@ if (!empty($_POST['input_menu_validate'])) {
                     $message = '<script>alert("Data Berhasil Di Tambah");
         window.location="../menu"</script>';
                 } else {
-                    $message = '<script>alert("Data Gagal Di Tambah");
+                    $message = '<script>alert("Data Gagal Di tambah");
         window.location="../menu"</script>';
                 }
             } else {

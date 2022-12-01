@@ -210,6 +210,7 @@ $select_kat_menu = mysqli_query($conn, "SELECT id,kategori_menu FROM tb_kategori
 
 
 
+
                 <!-- Modal Edit-->
                 <div class="modal fade" id="ModalEdit<?php echo $row['id'] ?>" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                     <div class="modal-dialog modal-xl modal-fullscreen-md-down">
@@ -295,11 +296,12 @@ $select_kat_menu = mysqli_query($conn, "SELECT id,kategori_menu FROM tb_kategori
                                     </div>
                                 </form>
                             </div>
-
                         </div>
                     </div>
                 </div>
                 <!-- Akhir Modal Edit-->
+
+
 
 
 
@@ -335,6 +337,9 @@ $select_kat_menu = mysqli_query($conn, "SELECT id,kategori_menu FROM tb_kategori
                     </div>
                 </div>
                 <!-- Akhir Modal Delete-->
+
+
+
 
                 <!-- Modal Reset Password-->
                 <div class="modal fade" id="ModalResetPassword<?php echo $row['id'] ?>" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">

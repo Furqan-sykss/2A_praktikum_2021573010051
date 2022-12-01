@@ -41,9 +41,9 @@ $hasil = mysqli_fetch_array($query);
         <!-- End Container Sidebar & Content -->
 
         <!-- Footer -->
-        <div class="container-fluid fixed-bottom bg-light py-2">
+        <div class="container-fluid fixed-bottom bg-light py-1">
             <div class="card text-center border-0 mb-2">
-                <i>(C)CoffeRight 212 Furqan - FPI Virtual</i>
+                <i>(C)DeCaffe Furqan - Virtual</i>
             </div>
             <!-- End Footer -->
         </div>

@@ -1,6 +1,5 @@
 <?php
     $conn = mysqli_connect("localhost","root","","db_decafe");
     if(!$conn){
-        echo "Gagal koneksi";
+        echo "Gagal koneksi database";
     }
-?>
