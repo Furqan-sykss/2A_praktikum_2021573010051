@@ -12,14 +12,14 @@ $select_kat_artikel = mysqli_query($conn, "SELECT id_kategori,kategori from tb_k
     <div class="card">
         <div class="card-header">
             <b>
-                <h5>Halaman Menu</h5>
+                <h5 style="color: #340422;">Halaman Artikel</h5>
             </b>
         </div>
         <div class="card-body">
             <div class="row">
                 <div class="col d-flex justify-content-end">
-                    <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#ModalTambahUser">
-                        Tambah Menu
+                    <button class="btn text-white" style="background-color: #004D40;" data-bs-toggle="modal" data-bs-target="#ModalTambahUser">
+                        Tambah Artikel
                     </button>
                 </div>
             </div>
@@ -50,6 +50,15 @@ $select_kat_artikel = mysqli_query($conn, "SELECT id_kategori,kategori from tb_k
                                             <label for="floatingInput">Judul Artikel</label>
                                             <div class="invalid-feedback">
                                                 Masukkan Judul Artikel.
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-6">
+                                        <div class="form-floating mb-3">
+                                            <input type="text" class="form-control" id="floatingInput" placeholder="Judul2 Artikel" name="judul2" required>
+                                            <label for="floatingInput">Judul 2 Artikel</label>
+                                            <div class="invalid-feedback">
+                                                Masukkan Judul 2 Artikel.
                                             </div>
                                         </div>
                                     </div>
@@ -130,7 +139,7 @@ $select_kat_artikel = mysqli_query($conn, "SELECT id_kategori,kategori from tb_k
                                             <div class="col-lg-4">
                                                 <div class="form-floating mb-3">
                                                     <select disabled class="form-select" aria-label="Default select example">
-                                                        <option selected hidden value="">Pilih Kategori Menu
+                                                        <option selected hidden value="">Pilih Kategori Artikel
                                                         <option>
                                                             <?php
                                                             foreach ($select_kat_artikel as $value) {
@@ -151,7 +160,7 @@ $select_kat_artikel = mysqli_query($conn, "SELECT id_kategori,kategori from tb_k
                                         </div>
                                         <div class="modal-footer">
                                             <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                                            <button type="submit" class="btn btn-primary" name="input_menu_validate" value="12345">Save changes</button>
+                                            <button type="submit" class="btn btn-primary"><a href=""></a> Save changes</button>
                                         </div>
                                     </form>
                                 </div>
@@ -284,19 +293,20 @@ $select_kat_artikel = mysqli_query($conn, "SELECT id_kategori,kategori from tb_k
 
                 ?>
                 <div class="table-responsive">
-                    <table class="table table-hover">
+                    <table class="table table-hover ">
                         <thead>
                             <tr class="text-nowrap">
                                 <th scope="col">No </th>
                                 <th scope="col">Foto Article </th>
                                 <th scope="col">Judul Article</th>
+                                <th scope="col">Judul 2 Article</th>
                                 <th scope="col">Isi</th>
                                 <th scope="col">Jenis Kategori</th>
                                 <th scope="col">Kategori</th>
 
                             </tr>
                         </thead>
-                        <tbody>
+                        <tbody style="height: 10;">
                             <?php
                             $no = 1;
                             foreach ($result as $row) {
@@ -310,6 +320,7 @@ $select_kat_artikel = mysqli_query($conn, "SELECT id_kategori,kategori from tb_k
                                         </div>
                                     </td>
                                     <td><?php echo $row['judul'] ?></td>
+                                    <td><?php echo $row['judul2'] ?></td>
                                     <td><?php echo $row['keterangan'] ?></td>
                                     <td><?php echo ($row['jenis_kategori'] == 1) ? "filsafat" : "Sejarah" ?></td>
                                     <td><?php echo $row['kategori'] ?></td>

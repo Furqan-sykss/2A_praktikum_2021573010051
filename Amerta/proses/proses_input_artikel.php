@@ -2,6 +2,7 @@
 include "connect.php";
 $foto = (isset($_POST['foto'])) ? htmlentities($_POST['foto']) : "";
 $judul = (isset($_POST['judul'])) ? htmlentities($_POST['judul']) : "";
+$judul2 = (isset($_POST['judul2'])) ? htmlentities($_POST['judul2']) : "";
 $keterangan = (isset($_POST['keterangan'])) ? htmlentities($_POST['keterangan']) : "";
 $jenis_kategori = (isset($_POST['kategori'])) ? htmlentities($_POST['kategori']) : "";
 
@@ -45,22 +46,23 @@ if (!empty($_POST['input_menu_validate'])) {
         window.location="../category"</script>';
         } else {
             if (move_uploaded_file($_FILES['foto']['tmp_name'], $target_file)) {
-                $query = mysqli_query($conn, "INSERT INTO tb_daftar_article (foto,judul,keterangan,kategori) 
+                $query = mysqli_query($conn, "INSERT INTO tb_daftar_article (foto,judul,judul2,keterangan,kategori) 
     values ('" . $kode_rand .
                     $_FILES['foto']['name'] .
                     "','$judul',
+                    '$judul2',
     '$keterangan',
     '$jenis_kategori')");
                 if ($query) {
                     $message = '<script>alert("Data Berhasil Di Tambah");
-        window.location="../categori"</script>';
+        window.location="../category"</script>';
                 } else {
                     $message = '<script>alert("Data gagal Di Tambah");
         window.location="../category"</script>';
                 }
             } else {
                 $message = '<script>alert("Maaf, terjadi kesalahan file tidak dapat diupload");
-        window.location="../categori"</script>';
+        window.location="../category"</script>';
             }
         }
     }

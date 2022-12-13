@@ -41,7 +41,7 @@ $hasil = mysqli_fetch_array($query);
         <!-- End Container Sidebar & Content -->
 
         <!-- Footer -->
-        <div class="container-fluid fixed-bottom bg-light py-1">
+        <div class=" mt-5 container-fluid  bg-light ">
             <div class="card text-center border-0 mb-2">
                 <i> Furqan || AMERTA</i>
             </div>

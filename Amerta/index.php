@@ -34,9 +34,6 @@ if (isset($_GET['x']) && $_GET['x'] == 'home') {
 // } 
 else            if (isset($_GET['x']) && $_GET['x'] == 'login') {
     include "login.php";
-} else            if (isset($_GET['x']) && $_GET['x'] == 'ketmenu') {
-    $page = "ketmenu.php";
-    include "main.php";
 } else            if (isset($_GET['x']) && $_GET['x'] == 'logout') {
     $page = "proses/proses_logout.php";
     include "proses/proses_logout.php";

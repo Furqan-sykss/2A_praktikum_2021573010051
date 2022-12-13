@@ -1,4 +1,4 @@
-        <nav class="navbar navbar-expand navbar-dark  sticky-top" style="background-color: #340422 ;">
+        <nav class="navbar navbar-expand navbar-dark  sticky-top" style="background-color: #004D40 ;">
             <div class="container-lg">
                 <a class="navbar-brand" href=".">
                     <i class="bi bi-newspaper"></i>

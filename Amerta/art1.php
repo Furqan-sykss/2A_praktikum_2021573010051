@@ -35,10 +35,26 @@ $hasil = mysqli_fetch_array($query);
             <?php include "sidebar.php"; ?>
             <!-- End Sidebar -->
 
-            <div class="col-lg-9 mt-2">
-
-                <h1>sadasdasdasdasdasd</h1>
-            </div>
+            <?php
+            include "proses/connect.php";
+            $query = mysqli_query($conn, "SELECT foto,judul,judul2,keterangan FROM tb_daftar_article WHERE id_daftar_article = '1'");
+            while ($hasil = mysqli_fetch_array($query)) {
+            ?>
+                <div class="col-lg-9 mt-2">
+                    <h1><?php echo $hasil['judul'] ?></h1>
+                    <br>
+                    <h4><?php echo $hasil['judul2'] ?></h4>
+                    <br>
+                    <div class="">
+                        <img class="" src="assets/img/<?php echo $hasil['foto'] ?>" alt="" width="85%" height="50%">
+                    </div>
+                    <br>
+                    <p><?php echo $hasil['keterangan'] ?></p>
+                    <br>
+                </div>
+            <?php
+            }
+            ?>
         </div>
     </div>
 

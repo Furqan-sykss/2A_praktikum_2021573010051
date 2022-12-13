@@ -87,6 +87,7 @@
             <div class="card h-100">
                 <img src="img/bg4.jpg" alt="">
                 <div class="card-body">
+                    <a href="" class="stretched-link"></a>
                     <h5 class="card-title">Card title</h5>
                     <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
                 </div>
@@ -97,6 +98,7 @@
             <div class="card h-100">
                 <img src="img/bg3.jpg" alt="">
                 <div class="card-body">
+                    <a href="" class="stretched-link"></a>
                     <h5 class="card-title">Card title</h5>
                     <p class="card-text">This card has supporting text below as a natural lead-in to additional content.</p>
                 </div>
@@ -106,7 +108,7 @@
         <div class="col-6 col-lg-3">
             <div class="card h-100">
                 <img src="img/bg2.jpg" alt="">
-
+                <a href="" class="stretched-link"></a>
                 <div class="card-body">
                     <h5 class="card-title">Card title</h5>
                     <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This card has even longer content than the first to show that equal height action.</p>
@@ -117,7 +119,7 @@
         <div class="col-6 col-lg-3">
             <div class="card h-100">
                 <img src="img/bg1.jpg" alt="">
-
+                <a href="" class="stretched-link"></a>
                 <div class="card-body">
                     <h5 class="card-title">Card title</h5>
                     <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This card has even longer content than the first to show that equal height action.</p>
@@ -134,11 +136,11 @@
     while ($hasil = mysqli_fetch_array($query)) {
 
     ?>
-        <hr class="featurette-divider">
+        <hr class="featurette-divider mb-3 ">
         <div class="row featurette mb-3 border rounded overflow-hidden shadow-sm h-md-250 position-relative">
             <div class="col-md-7 mt-2">
                 <h2 class="featurette-heading fw-normal lh-1"><?php echo $hasil["judul"]; ?> <span class="text-muted">It’ll blow your mind.</span></h2>
-                <p class="lead"><?php echo $hasil["keterangan"]; ?>.</p>
+                <p class="lead" style="overflow: hidden; white-space: nowrap; text-overflow: ellipsis;"><?php echo $hasil["keterangan"]; ?>.</p>
                 <a href="art1.php" class="stretched-link"></a>
             </div>
             <div class="col-md-5 mt-2 mb-3">

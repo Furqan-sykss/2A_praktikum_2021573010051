@@ -1,12 +1,20 @@
-<div class="col-lg-9  mt-3">
-    <div class="p-4 p-md-5 mb-4 rounded text-bg-dark" style="background-image: url(assets/img/bg1.jpg) ;">
-        <div class="col-md-6 px-0 ">
-            <h1 class="display-4 fst-italic">Title of a longer featured blog post</h1>
-            <p class="lead my-3">Multiple lines of text that form the lede, informing new readers quickly and efficiently about what’s most interesting in this post’s contents.</p>
-            <p class="lead mb-0"><a href="#" class="text-white fw-bold">Continue reading...</a></p>
+<?php
+include "proses/connect.php";
+$query  = mysqli_query($conn, "SELECT foto,judul,judul2,keterangan FROM tb_daftar_article WHERE id_daftar_article = '1'");
+while ($hasil = mysqli_fetch_array($query)) {
+?>
+    <div class="col-lg-9  mt-3">
+        <div class="p-4 p-md-5 mb-4 rounded text-bg-dark " style=" background-image: url(assets/img/<?php echo $hasil['foto'] ?>) ;">
+            <div class="col-md-6 px-0 border" style="backdrop-filter: blur(5px); text-shadow: 2px 2px 5px black;">
+                <h1 class="display-4 fst-italic"><?php echo $hasil["judul"]; ?> </h1>
+                <p class="lead my-3"><?php echo $hasil["judul2"]; ?> </p>
+                <a href="art1.php" class="stretched-link"></a>
+            </div>
         </div>
     </div>
-</div>
+<?php
+}
+?>
 <div class="row mb-2">
     <div class="col-md-6">
         <div class="row g-0 border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
