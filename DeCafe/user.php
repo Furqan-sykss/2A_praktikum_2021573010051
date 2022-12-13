@@ -53,7 +53,7 @@ while ($record = mysqli_fetch_array($query)) {
                                     <div class="col-lg-4">
                                         <div class="form-floating mb-3">
                                             <select class="form-select" aria-label="Default select example" name="level" required>
-                                                <option selected hidden value="">Pilih User Level</option>
+                                                <option selected hidden value="">Pilih Level User </option>
                                                 <option value="1">owner/admin</option>
                                                 <option value="2">kasir</option>
                                                 <option value="3">pelayan</option>
@@ -194,8 +194,9 @@ while ($record = mysqli_fetch_array($query)) {
                                         </div>
                                         <div class="col-lg-6">
                                             <div class="form-floating mb-3">
-                                                <input <?php echo ($row['username'] == $_SESSION['username_decafe']) ? 'disabled' : '' ;?>
-                                                type="email" class="form-control" id="floatingUsername" placeholder="name@example.com" required name="username" value="<?php echo $row['username'] ?>">
+                                                <input
+                                                <?php echo ($row['username'] == $_SESSION['username_decafe']) ? 'disabled' : ''; ?>
+                                                type="email" class="form-control" id="floatingInput" placeholder="name@example.com" required name="username" value="<?php echo $row['username'] ?>">
                                                 <label for="floatingInput">Username</label>
                                                 <div class="invalid-feedback">
                                                     Masukkan username
@@ -263,7 +264,7 @@ while ($record = mysqli_fetch_array($query)) {
                                         if ($row['username'] == $_SESSION['username_decafe']) {
                                             echo "<div class='alert alert-danger'>Anda Tidak dapat menghapus akun sendiri</div>";
                                         } else {
-                                            echo "Apakah anda yakin ingin menghapus kenangan anda <b>$row[username]</b>";
+                                            echo "Apakah anda yakin ingin menghapus akun anda <b>$row[username]</b>";
                                         }
                                         ?>
                                     </div>
@@ -292,10 +293,9 @@ while ($record = mysqli_fetch_array($query)) {
                                     <div class="col-lg-12">
                                         <?php
                                         if ($row['username'] == $_SESSION['username_decafe']) {
-                                            echo "<div class='alert alert-danger'>Anda Tidak dapat mereset akun sendiri</div>";
+                                            echo "<div class='alert alert-danger'>Anda Tidak dapat mereset password sendiri</div>";
                                         } else {
-                                            echo "Apakah anda yakin ingin mereset kehidupan user ini <b>$row[username]</b>
-                                            menjadi password bawaan sistem yaitu <b>password</b>";
+                                            echo "Apakah anda yakin ingin mereset password user <b>$row[username]</b> menjadi password bawaan sistem yaitu<b>password</b>";
                                         }
                                         ?>
                                     </div>
@@ -308,8 +308,7 @@ while ($record = mysqli_fetch_array($query)) {
                         </div>
                     </div>
                 </div>
-                <!-- Akhir Reset Password-->
-
+                <!-- Akhir Modal Reset Password-->
             <?php
             }
             if (empty($result)) {
@@ -355,7 +354,7 @@ while ($record = mysqli_fetch_array($query)) {
                                         <button class="btn btn-info btn-sm me-1" data-bs-toggle="modal" data-bs-target="#ModalView<?php echo $row['id'] ?>"><i class="bi bi-eye"></i></button>
                                         <button class="btn btn-warning btn-sm me-1" data-bs-toggle="modal" data-bs-target="#ModalEdit<?php echo $row['id'] ?>"><i class="bi bi-pencil-square"></i></button>
                                         <button class="btn btn-danger btn-sm me-1" data-bs-toggle="modal" data-bs-target="#ModalDelete<?php echo $row['id'] ?>"><i class="bi bi-trash3"></i></button>
-                                        <button class="btn btn-secondary btn-sm" data-bs-toggle="modal" data-bs-target="#ModalResetPassword<?php echo $row['id'] ?>"><i class="bi bi-key-fill"></i></button>
+                                        <button class="btn btn-secondary btn-sm" data-bs-toggle="modal" data-bs-target="#ModalResetPassword<?php echo $row['id'] ?>"><i class="bi bi-key"></i></button>
                                     </td>
                                 </tr>
                             <?php

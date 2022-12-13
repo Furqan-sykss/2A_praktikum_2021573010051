@@ -1,4 +1,4 @@
-        <nav class="navbar navbar-expand navbar-light bg-white sticky-top">
+        <nav class="navbar navbar-expand navbar-dark  sticky-top" style="background-color: #340422 ;">
             <div class="container-lg">
                 <a class="navbar-brand" href=".">
                     <i class="bi bi-newspaper"></i>
@@ -126,7 +126,7 @@
                                     <div class="form-floating mb-3">
                                         <select disabled name="level" class="form-select" aria-label="default select example" id="" required>
                                             <?php
-                                            $data = array("owner/admin", "kasir", "pelayan", "dapur");
+                                            $data = array("owner/admin", "pelihat");
                                             foreach ($data as $key => $value) {
                                                 if ($row['level'] == $key + 1) {
                                                     echo "<option selected value='$key'>$value</option>";

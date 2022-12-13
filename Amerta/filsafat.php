@@ -43,7 +43,7 @@
             <h3 class="mb-0">Featured post</h3>
             <div class="mb-1 text-muted">Nov 12</div>
             <p class="card-text mb-auto">This is a wider card with supporting text below as a natural lead-in to additional content.</p>
-            <a href="article1.php" class="stretched-link">Continue reading</a>
+            <a href="art1.php" class="stretched-link">Continue reading</a>
         </div>
         <div class="col-auto d-none d-lg-block">
             <svg class="bd-placeholder-img" width="200" height="250" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false">
@@ -128,22 +128,28 @@
 
     <!-- START THE FEATURETTES -->
 
-    <hr class="featurette-divider">
+    <?php
+    include "proses/connect.php";
+    $query  = mysqli_query($conn, "SELECT foto,judul,keterangan FROM tb_daftar_article WHERE id_daftar_article = '1'");
+    while ($hasil = mysqli_fetch_array($query)) {
 
-    <div class="row featurette mb-3">
-        <div class="col-md-7">
-            <h2 class="featurette-heading fw-normal lh-1">First featurette heading. <span class="text-muted">It’ll blow your mind.</span></h2>
-            <p class="lead">Some great placeholder content for the first featurette here. Imagine some exciting prose here.</p>
+    ?>
+        <hr class="featurette-divider">
+        <div class="row featurette mb-3 border rounded overflow-hidden shadow-sm h-md-250 position-relative">
+            <div class="col-md-7 mt-2">
+                <h2 class="featurette-heading fw-normal lh-1"><?php echo $hasil["judul"]; ?> <span class="text-muted">It’ll blow your mind.</span></h2>
+                <p class="lead"><?php echo $hasil["keterangan"]; ?>.</p>
+                <a href="art1.php" class="stretched-link"></a>
+            </div>
+            <div class="col-md-5 mt-2 mb-3">
+                <img src="assets/img/<?php echo $hasil['foto'] ?>" width="500" height="500" class="img-thumbnail" alt="...">
+                </svg>
+
+            </div>
         </div>
-        <div class="col-md-5">
-            <svg class="bd-placeholder-img bd-placeholder-img-lg featurette-image img-fluid mx-auto" width="500" height="500" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: 500x500" preserveAspectRatio="xMidYMid slice" focusable="false">
-                <title>Placeholder</title>
-                <rect width="100%" height="100%" fill="#eee" /><text x="50%" y="50%" fill="#aaa" dy=".3em">500x500</text>
-            </svg>
-
-        </div>
-    </div>
-
+    <?php
+    }
+    ?>
     <hr class="featurette-divider">
 
     <div class="row featurette">
