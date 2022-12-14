@@ -6,7 +6,7 @@ while ($record = mysqli_fetch_array($query)) {
     $result[] = $record;
 }
 
-$select_kat_artikel = mysqli_query($conn, "SELECT id_kategori,kategori from tb_kategori_article");
+$select_kategori = mysqli_query($conn, "SELECT id_kategori,kategori from tb_kategori_article");
 ?>
 <div class="col-lg-9 mt-2">
     <div class="card">
@@ -75,10 +75,10 @@ $select_kat_artikel = mysqli_query($conn, "SELECT id_kategori,kategori from tb_k
                                     <div class="col-lg-4">
                                         <div class="form-floating mb-3">
                                             <select class="form-select" aria-label="Default select example" name="kategori" required>
-                                                <option selected hidden value="">Pilih Kategori Menu
+                                                <option selected hidden value="">Pilih Kategori Artikel
                                                 <option>
                                                     <?php
-                                                    foreach ($select_kat_artikel as $value) {
+                                                    foreach ($select_kategori as $value) {
                                                         echo "<option value=" . $value['id_kategori'] . ">$value[kategori] </option>";
                                                     }
                                                     ?>
@@ -130,6 +130,17 @@ $select_kat_artikel = mysqli_query($conn, "SELECT id_kategori,kategori from tb_k
                                         <div class="row">
                                             <div class="col-lg-12">
                                                 <div class="form-floating mb-3">
+                                                    <input disabled type="text" class="form-control" id="floatingInput" value="<?php echo $row['judul2'] ?>">
+                                                    <label for="floatingInput">Judul 2 Arikel</label>
+                                                    <div class="invalid-feedback">
+                                                        Masukkan Artikel.
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-lg-12">
+                                                <div class="form-floating mb-3">
                                                     <input disabled type="text" class="form-control" id="floatingInput" value="<?php echo $row['keterangan'] ?>">
                                                     <label for="floatingpassword">Keterangan</label>
                                                 </div>
@@ -142,7 +153,7 @@ $select_kat_artikel = mysqli_query($conn, "SELECT id_kategori,kategori from tb_k
                                                         <option selected hidden value="">Pilih Kategori Artikel
                                                         <option>
                                                             <?php
-                                                            foreach ($select_kat_artikel as $value) {
+                                                            foreach ($select_kategori as $value) {
                                                                 if ($row['kategori'] == $value['id_kategori']) {
                                                                     echo "<option selected value=" . $value['id_kategori'] . ">$value[kategori] </option>";
                                                                 } else {
@@ -170,32 +181,43 @@ $select_kat_artikel = mysqli_query($conn, "SELECT id_kategori,kategori from tb_k
                     <!-- Akhir Modal View-->
 
                     <!-- Modal Edit-->
-                    <div class="modal fade" id="ModalEdit<?php echo $row['id'] ?>" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                    <div class="modal fade" id="ModalEdit<?php echo $row['id_daftar_article'] ?>" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                         <div class="modal-dialog modal-xl modal-fullscreen-md-down">
                             <div class="modal-content">
                                 <div class="modal-header">
-                                    <h1 class="modal-title fs-5" id="exampleModalLabel">Tambah Menu Makanan dan Minuman</h1>
+                                    <h1 class="modal-title fs-5" id="exampleModalLabel">Edit Artikel</h1>
                                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                                 </div>
                                 <div class="modal-body">
-                                    <form class="needs-validation" novalidate action="proses/proses_edit_menu.php" method="post" enctype="multipart/form-data">
-                                        <input type="hidden" value="<?php echo $row['id'] ?>" name="id">
+                                    <form class="needs-validation" novalidate action="proses/proses_edit_artikel.php" method="post" enctype="multipart/form-data">
+                                        <input type="hidden" value="<?php echo $row['id_daftar_article'] ?>" name="id">
                                         <div class="row">
                                             <div class="col-lg-6">
                                                 <div class="input-group mb-3">
                                                     <input type="file" class="form-control py-3" id="uploadFoto" placeholder="your name" name="foto" required>
-                                                    <label class="input-group-text" for="uploadFoto">Upload Foto Menu</label>
+                                                    <label class="input-group-text" for="uploadFoto">Upload Foto Artikel</label>
                                                     <div class="invalid-feedback">
-                                                        Masukkan File Foto Menu
+                                                        Masukkan File Foto Artikel
                                                     </div>
                                                 </div>
                                             </div>
                                             <div class="col-lg-6">
                                                 <div class="form-floating mb-3">
-                                                    <input type="text" class="form-control" id="floatingInput" placeholder="Nama Menu" name="nama_menu" required value="<?php echo $row['nama_menu'] ?>">
-                                                    <label for="floatingInput">Nama Menu</label>
+                                                    <input type="text" class="form-control" id="floatingInput" placeholder="Judul Artikel" name="judulartikel" required value="<?php echo $row['judul'] ?>">
+                                                    <label for="floatingInput">Judul Artikel</label>
                                                     <div class="invalid-feedback">
-                                                        Masukkan Nama Menu.
+                                                        Masukkan Judul Artikel.
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-lg-12">
+                                                <div class="form-floating mb-3">
+                                                    <input type="text" class="form-control" id="floatingInput" placeholder="Judul Artikel" name="judulartikel2" required value="<?php echo $row['judul2'] ?>">
+                                                    <label for="floatingInput">Judul Artikel 2</label>
+                                                    <div class="invalid-feedback">
+                                                        Masukkan Judul Artikel 2.
                                                     </div>
                                                 </div>
                                             </div>
@@ -211,47 +233,29 @@ $select_kat_artikel = mysqli_query($conn, "SELECT id_kategori,kategori from tb_k
                                         <div class="row">
                                             <div class="col-lg-4">
                                                 <div class="form-floating mb-3">
-                                                    <select class="form-select" aria-label="Default select example" name="kat_menu">
+                                                    <select class="form-select" aria-label="Default select example" name="kategori">
                                                         <option selected hidden value="">Pilih Kategori Menu
                                                         <option>
                                                             <?php
-                                                            foreach ($select_kat_artikel as $value) {
-                                                                if ($row['kategori'] == $value['id_kat_menu']) {
-                                                                    echo "<option selected value=" . $value['id_kat_menu'] . ">$value[kategori_menu] </option>";
+                                                            foreach ($select_kategori as $value) {
+                                                                if ($row['kategori'] == $value['id_kategori']) {
+                                                                    echo "<option selected value=" . $value['id_kategori'] . ">$value[kategori] </option>";
                                                                 } else {
-                                                                    echo "<option value=" . $value['id_kat_menu'] . ">$value[kategori_menu] </option>";
+                                                                    echo "<option value=" . $value['id_kategori'] . ">$value[kategori] </option>";
                                                                 }
                                                             }
                                                             ?>
                                                     </select>
-                                                    <label for="floatingInput">Kategori Makanan atau Minumana</label>
+                                                    <label for="floatingInput">Kategori Artikel</label>
                                                     <div class="invalid-feedback">
-                                                        Pilih Kategori Makanan atau Minuman.
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="col-lg-4">
-                                                <div class="form-floating mb-3">
-                                                    <input type="number" class="form-control" id="floatingInput" placeholder="Harga" name="harga" required value="<?php echo $row['harga'] ?>">
-                                                    <label for="floatingInput">Harga</label>
-                                                    <div class="invalid-feedback">
-                                                        Masukkan Harga Menu
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="col-lg-4">
-                                                <div class="form-floating mb-3">
-                                                    <input type="number" class="form-control" id="floatingInput" placeholder="Stok" name="stok" required value="<?php echo $row['stok'] ?>">
-                                                    <label for="floatingInput">Stok</label>
-                                                    <div class="invalid-feedback">
-                                                        Masukkan Stok
+                                                        Pilih Kategori Artikel.
                                                     </div>
                                                 </div>
                                             </div>
                                         </div>
                                         <div class="modal-footer">
                                             <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                                            <button type="submit" class="btn btn-primary" name="input_menu_validate" value="12345">Save changes</button>
+                                            <button type="submit" class="btn btn-primary" name="input_category_validate" value="12345">Save changes</button>
                                         </div>
                                     </form>
                                 </div>
@@ -261,23 +265,23 @@ $select_kat_artikel = mysqli_query($conn, "SELECT id_kategori,kategori from tb_k
                     <!-- Akhir Modal Edit-->
 
                     <!-- Modal Delete-->
-                    <div class="modal fade" id="ModalDelete<?php echo $row['id'] ?>" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                    <div class="modal fade" id="ModalDelete<?php echo $row['id_daftar_article'] ?>" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                         <div class="modal-dialog modal-md modal-fullscreen-md-down">
                             <div class="modal-content">
                                 <div class="modal-header">
-                                    <h1 class="modal-title fs-5" id="exampleModalLabel">Delete Daftar Menu</h1>
+                                    <h1 class="modal-title fs-5" id="exampleModalLabel">Delete Daftar Artikel</h1>
                                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                                 </div>
                                 <div class="modal-body">
-                                    <form class="needs-validation" novalidate action="proses/proses_delete_menu.php" method="post">
-                                        <input type="hidden" value="<?php echo $row['id'] ?>" name="id">
+                                    <form class="needs-validation" novalidate action="proses/proses_delete_artikel.php" method="post">
+                                        <input type="hidden" value="<?php echo $row['id_daftar_article'] ?>" name="id">
                                         <input type="hidden" value="<?php echo $row['foto'] ?>" name="foto">
                                         <div class="col-lg-12">
-                                            <b>Apakah anda ingin menghapus menu</b> <b><i><?php echo $row['nama_menu'] ?></i></b>
+                                            <b>Apakah anda ingin menghapus Artikel</b> <b><i><?php echo $row['judul'] ?></i></b>
                                         </div>
                                         <div class="modal-footer">
                                             <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                                            <button type="submit" class="btn btn-danger" name="input_user_validate" value="12345">Hapus</button>
+                                            <button type="submit" class="btn btn-danger" name="input_category_validate" value="12345">Hapus</button>
                                         </div>
                                     </form>
                                 </div>
@@ -285,12 +289,8 @@ $select_kat_artikel = mysqli_query($conn, "SELECT id_kategori,kategori from tb_k
                         </div>
                     </div>
                     <!-- Akhir Modal Delete-->
-
-
                 <?php
                 }
-
-
                 ?>
                 <div class="table-responsive">
                     <table class="table table-hover ">
@@ -322,7 +322,7 @@ $select_kat_artikel = mysqli_query($conn, "SELECT id_kategori,kategori from tb_k
                                     <td><?php echo $row['judul'] ?></td>
                                     <td><?php echo $row['judul2'] ?></td>
                                     <td><?php echo $row['keterangan'] ?></td>
-                                    <td><?php echo ($row['jenis_kategori'] == 1) ? "filsafat" : "Sejarah" ?></td>
+                                    <td><?php echo ($row['kategori'] == 1) ? "filsafat" : "Sejarah" ?></td>
                                     <td><?php echo $row['kategori'] ?></td>
                                     <td>
                                         <div class="d-flex">

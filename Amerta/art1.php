@@ -24,7 +24,7 @@ $hasil = mysqli_fetch_array($query);
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css">
 </head>
 
-<body>
+<body style="font-style: italic;">
     <!-- Navbar -->
     <?php include "header.php" ?>
     <!-- End Navbar -->
@@ -37,20 +37,33 @@ $hasil = mysqli_fetch_array($query);
 
             <?php
             include "proses/connect.php";
-            $query = mysqli_query($conn, "SELECT foto,judul,judul2,keterangan FROM tb_daftar_article WHERE id_daftar_article = '1'");
+            $query = mysqli_query($conn, "SELECT foto,judul,judul2,keterangan FROM tb_daftar_article WHERE id_daftar_article = '4'");
             while ($hasil = mysqli_fetch_array($query)) {
             ?>
-                <div class="col-lg-9 mt-2">
+                <div class="col-lg-6 mt-2">
                     <h1><?php echo $hasil['judul'] ?></h1>
                     <br>
                     <h4><?php echo $hasil['judul2'] ?></h4>
                     <br>
                     <div class="">
-                        <img class="" src="assets/img/<?php echo $hasil['foto'] ?>" alt="" width="85%" height="50%">
+                        <img class="" src="assets/img/<?php echo $hasil['foto'] ?>" alt="" width="115%" height="100%">
                     </div>
                     <br>
-                    <p><?php echo $hasil['keterangan'] ?></p>
+                    <h3>Apakah Stoisisme itu?</h3>
                     <br>
+                    <p>Stoisisme didasarkan pada ide bahwa tujuan hidup adalah hidup selaras dengan alam. Alam itu sendiri didefinisikan sebagai keseluruhan kosmos, termasuk rekan-rekan kita sesama manusia.
+                        Epictetus, yang mazhab Stoisismenya berkembang pada abad kedua Masehi, memberitahu kita cara mewujudkan ide ini. Dia berkata, “ada hal-hal yang berada dalam kendali kita dan ada hal-hal yang tidak berada dalam kendali kita.” Maka, jika sesuatu tidak berada dalam kendali kita, tidak layak mengerahkan energi untuk itu.</p>
+                    <br>
+                    <img src="assets/img/art1bg.png" alt="">
+                    <br>
+                    <br>
+                    <p>Kendati demikian, ada masanya, bahkan bagi para pemikir itu, saat-saat mereka menemui kesulitan untuk menjalankan tugas-tugas mereka. Marcus Aurelius, yang, sebagai kaisar Imperium Romawi dari tahun 161-180 M, adalah orang paling berkuasa di dunia, menjelaskan dalam salah satu bagian “Meditasi”, kumpulan tulisannya, bahwa dia sedang berjuang untuk bangkit dari tempat tidur. Dia pun berkata kepada dirinya sendiri,</p>
+                    <br>
+                    <p>""Aku bangun untuk melakukan pekerjaan seorang manusia. Lalu, mengapa aku begitu jengkel ketika aku keluar untuk melakukan hal yang ditakdirkan untukku dan merupakan alasan aku ada di dunia ini? Atau aku memang diciptakan untuk ini, berbaring di tempat tidur dan menghangatkan diri di balik selimut?""</p>
+                    <br>
+                    <p>Dia juga tahu bahwa nasihat ini bisa ampuh bisa juga tidak suatu hari nanti. Karena itulah, walaupun dia memaksa dirinya menjalani hidup, Markus menegaskan apa yang mungkin dia hadapi:</p>
+                    <br>
+                    <p>""Katakan kepada dirimu sendiri di awal hari, aku akan bertemu dengan orang-orang usil, tak tahu di untung, brutal, pengkhianat, pendengki, dan tidak ramah.""</p>
                 </div>
             <?php
             }
