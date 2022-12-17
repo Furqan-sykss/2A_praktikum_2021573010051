@@ -1,4 +1,4 @@
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css">
+<!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css">
 <div class="col-lg-3">
     <nav class="navbar navbar-expand-lg bg-light rounded mt-2">
         <div class="container-fluid">
@@ -53,4 +53,4 @@
             </div>
         </div>
     </nav>
-</div>
+</div> -->

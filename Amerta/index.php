@@ -8,6 +8,9 @@ if (isset($_GET['x']) && $_GET['x'] == 'home') {
 } else            if (isset($_GET['x']) && $_GET['x'] == 'filsafat') {
     $page = "filsafat.php";
     include "main.php";
+} else            if (isset($_GET['x']) && $_GET['x'] == 'politik') {
+    $page = "politik.php";
+    include "main.php";
 } else            if (isset($_GET['x']) && $_GET['x'] == 'sejarah') {
     $page = "sejarah.php";
     include "main.php";
@@ -33,7 +36,7 @@ if (isset($_GET['x']) && $_GET['x'] == 'home') {
     $page = "proses/proses_logout.php";
     include "proses/proses_logout.php";
 } else {
-    include "home.php";
+    include "login.php";
     $page = "main.php";
 }
 ?>

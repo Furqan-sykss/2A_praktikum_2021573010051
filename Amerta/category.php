@@ -8,7 +8,7 @@ while ($record = mysqli_fetch_array($query)) {
 
 $select_kategori = mysqli_query($conn, "SELECT id_kategori,kategori from tb_kategori_article");
 ?>
-<div class="col-lg-9 mt-2">
+<div class="col mt-2">
     <div class="card">
         <div class="card-header">
             <b>
@@ -29,7 +29,7 @@ $select_kategori = mysqli_query($conn, "SELECT id_kategori,kategori from tb_kate
                 <div class="modal-dialog modal-xl modal-fullscreen-md-down">
                     <div class="modal-content">
                         <div class="modal-header">
-                            <h1 class="modal-title fs-5" id="exampleModalLabel">Tambah Menu Makanan dan Minuman</h1>
+                            <h1 class="modal-title fs-5" id="exampleModalLabel">Tambah Artikel</h1>
                             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                         </div>
                         <div class="modal-body">
@@ -255,7 +255,7 @@ $select_kategori = mysqli_query($conn, "SELECT id_kategori,kategori from tb_kate
                                         </div>
                                         <div class="modal-footer">
                                             <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                                            <button type="submit" class="btn btn-primary" name="input_category_validate" value="12345">Save changes</button>
+                                            <button type="submit" class="btn btn-primary" name="ubah_artikel_validate" value="12345">Save changes</button>
                                         </div>
                                     </form>
                                 </div>
