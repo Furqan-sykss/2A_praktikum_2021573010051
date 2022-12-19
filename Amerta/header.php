@@ -34,10 +34,13 @@
         <nav class="nav d-flex justify-content-between">
             <a class="p-2 link-secondary <?php echo ((isset($_GET['x']) && $_GET['x'] == 'home') || !isset($_GET['x'])) ? ' link-dark'
                                                 : 'link-dark'; ?>" aria-current="page" href="home">Home</a>
+
             <a class="p-2 link-secondary  <?php echo ((isset($_GET['x']) && $_GET['x'] == 'sejarah') || !isset($_GET['x'])) ? ' link-dark'
                                                 : 'link-dark'; ?>" aria-current="page" href="sejarah">Sejarah</a>
+
             <a class="p-2 link-secondary  <?php echo ((isset($_GET['x']) && $_GET['x'] == 'politik') || !isset($_GET['x'])) ? ' link-dark'
                                                 : 'link-dark'; ?>" aria-current="page" href="politik">Politik</a>
+
             <a class="p-2 link-secondary <?php echo ((isset($_GET['x']) && $_GET['x'] == 'filsafat') || !isset($_GET['x'])) ? ' link-dark'
                                                 : 'link-dark'; ?>" aria-current="page" href="filsafat">Filsafat</a>
             <?php if ($hasil['level'] == 1) { ?>

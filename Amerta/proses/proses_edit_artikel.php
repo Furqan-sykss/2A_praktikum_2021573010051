@@ -1,8 +1,8 @@
 <?php
 include "connect.php";
-$id = (isset($_POST['id_daftar_article'])) ? htmlentities($_POST['id_daftar_article']) : "";
-$judulartikel = (isset($_POST['judul'])) ? htmlentities($_POST['judul']) : "";
-$judulartikel2 = (isset($_POST['judul2'])) ? htmlentities($_POST['judul2']) : "";
+$id = (isset($_POST['id'])) ? htmlentities($_POST['id']) : "";
+$judul = (isset($_POST['judul'])) ? htmlentities($_POST['judul']) : "";
+$judul2 = (isset($_POST['judul2'])) ? htmlentities($_POST['judul2']) : "";
 $keterangan = (isset($_POST['keterangan'])) ? htmlentities($_POST['keterangan']) : "";
 $kategori = (isset($_POST['kategori'])) ? htmlentities($_POST['kategori']) : "";
 
@@ -12,7 +12,7 @@ $target_file = $target_dir . basename($_FILES['foto']['name']);
 $imageType = strtolower(pathinfo($target_file, PATHINFO_EXTENSION));
 
 
-if (!empty($_POST['ubah_artikel_validate'])) {
+if (!empty($_POST['input_artikel_validate'])) {
     // Cek apakah gambar atau bukan
     $cek = getimagesize($_FILES['foto']['tmp_name']);
     if ($cek === false) {
@@ -39,22 +39,28 @@ if (!empty($_POST['ubah_artikel_validate'])) {
         $message = '<script>alert("' . $message . ' Gambar tidak bisa diupload");
     window.location="../category"</script>';
     } else {
-        $select = mysqli_query($conn, "SELECT * FROM tb_daftar_article WHERE judul ='$judulartikel'");
+        $select = mysqli_query($conn, "SELECT * FROM tb_daftar_article WHERE judul ='$judul'");
         if (mysqli_num_rows($select) > 0) {
-            $message = '<script>alert("Judul Arikel yang dimasukkan telah ada");
+            $message = '<script>alert("judul yang dimasukkan telah ada");
         window.location="../category"</script>';
         } else {
             if (move_uploaded_file($_FILES['foto']['tmp_name'], $target_file)) {
-                $query = mysqli_query($conn, "UPDATE tb_daftar_article SET foto='" . $kode_rand . $_FILES['foto']['name'] . "', judul= '$judulartikel',judul2= '$judulartikel2',keterangan='$keterangan',kategori='$kategori' WHERE id_daftar_article='$id'");
+                $query = mysqli_query($conn, "UPDATE tb_daftar_article SET foto='" . $kode_rand . $_FILES['foto']['name'] . "', judul= '$judul',
+                judul2= '$judul2',
+                keterangan='$keterangan',
+                kategori= '$kategori' 
+                WHERE 
+                id='$id'
+                ");
                 if ($query) {
-                    $message = '<script>alert("Data Berhasil DiTambah");
+                    $message = '<script>alert("Data Berhasil Di Tambah");
         window.location="../category"</script>';
                 } else {
-                    $message = '<script>alert("Data gagal DiTambah");
+                    $message = '<script>alert("Data gagal Di Tambah");
         window.location="../category"</script>';
                 }
             } else {
-                $message = '<script>alert("Maaf, terjadi kesalahan file tia=dak dapat diupload");
+                $message = '<script>alert("Maaf, terjadi kesalahan file tidak dapat diupload");
         window.location="../category"</script>';
             }
         }

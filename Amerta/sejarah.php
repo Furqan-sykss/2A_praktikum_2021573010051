@@ -1,6 +1,6 @@
 <?php
 include "proses/connect.php";
-$query  = mysqli_query($conn, "SELECT foto,judul,judul2,keterangan FROM tb_daftar_article WHERE id_daftar_article = '1'");
+$query  = mysqli_query($conn, "SELECT foto,judul,judul2 FROM tb_daftar_article WHERE id = '1'");
 while ($hasil = mysqli_fetch_array($query)) {
 ?>
     <div class="container lg">

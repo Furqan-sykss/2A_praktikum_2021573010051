@@ -44,7 +44,7 @@
 
         <?php
         include "proses/connect.php";
-        $query  = mysqli_query($conn, "SELECT foto,judul,keterangan,kategori FROM tb_daftar_article WHERE id_daftar_article = '2'");
+        $query  = mysqli_query($conn, "SELECT foto,judul,keterangan,kategori FROM tb_daftar_article WHERE id = '2'");
         while ($hasil = mysqli_fetch_array($query)) {
         ?>
             <div class="row">
@@ -67,6 +67,7 @@
             ?>
 
 
+
             <div class="col-md-6">
                 <div class="row g-0 border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
                     <div class="col p-4 d-flex flex-column position-static">
@@ -85,6 +86,7 @@
                     </div>
                 </div>
             </div>
+
             </div>
     </div>
 </div>
@@ -150,7 +152,7 @@
 
     <?php
     include "proses/connect.php";
-    $query  = mysqli_query($conn, "SELECT foto,judul,keterangan FROM tb_daftar_article WHERE id_daftar_article = '4'");
+    $query  = mysqli_query($conn, "SELECT foto,judul,keterangan FROM tb_daftar_article WHERE id = '4'");
     while ($hasil = mysqli_fetch_array($query)) {
 
     ?>

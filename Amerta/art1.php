@@ -37,7 +37,7 @@ $hasil = mysqli_fetch_array($query);
 
             <?php
             include "proses/connect.php";
-            $query = mysqli_query($conn, "SELECT foto,judul,judul2,keterangan FROM tb_daftar_article WHERE id_daftar_article = '4'");
+            $query = mysqli_query($conn, "SELECT foto,judul,judul2,keterangan FROM tb_daftar_article WHERE id = '4'");
             while ($hasil = mysqli_fetch_array($query)) {
             ?>
                 <div class="col-lg-6 mt-2">
