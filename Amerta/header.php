@@ -150,7 +150,7 @@
                             <div class="form-floating mb-3">
                                 <select disabled name="level" class="form-select" aria-label="default select example" id="" required>
                                     <?php
-                                    $data = array("owner/admin", "pelihat");
+                                    $data = array("Pelihat", "pelihat");
                                     foreach ($data as $key => $value) {
                                         if ($row['level'] == $key + 2) {
                                             echo "<option selected value='$key'>$value</option>";
