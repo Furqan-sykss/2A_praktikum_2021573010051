@@ -159,7 +159,7 @@
                                     <?php
                                     $data = array("owner/admin", "pelihat");
                                     foreach ($data as $key => $value) {
-                                        if ($row['level'] == $key + 1) {
+                                        if ($row['level'] == $key + 2) {
                                             echo "<option selected value='$key'>$value</option>";
                                         } else {
                                             echo "<option value='$key'>$value</option>";
