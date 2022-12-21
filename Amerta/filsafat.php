@@ -1,50 +1,80 @@
-<div class="container">
-    <div class="col mt-2">
-        <div id="carouselExampleControls" class="carousel slide mb-3  " data-bs-ride="carousel">
-            <div class="carousel-inner">
-                <div class="carousel-item active">
-                    <img src="assets/img/article1.png" class="d-block w-100" alt="...">
-                    <div class=" card-img-overlay ">
-                        <div class="carousel-caption  w-200 text-info">
-                            <h3>Lorem ipsum dolor sit amet.</h3>
-                            <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Maiores, ipsam!</p>
-                            <button type="button" class="btn btn-danger"> Read More</button>
-                        </div>
-                    </div>
-                </div>
-                <div class="carousel-item">
-                    <img src="assets/img/bg2.jpg" class="d-block w-100" alt="...">
-                    <div class=" card-img-overlay ">
-                        <div class="carousel-caption  w-200 text-light">
-                            <h3>Lorem ipsum dolor sit amet.</h3>
-                            <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Maiores, ipsam!</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="carousel-item">
-                    <img src="assets/img/bg3.jpg" class="d-block w-100" alt="...">
-                </div>
-            </div>
-            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
-                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                <span class="visually-hidden">Previous</span>
-            </button>
-            <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="next">
-                <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                <span class="visually-hidden">Next</span>
-            </button>
+<div class="container mt-5">
+
+    <div id="carouselExampleCaptions" class="carousel slide w-100" data-bs-ride="false">
+        <div class="carousel-indicators">
+            <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+            <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1" aria-label="Slide 2"></button>
+            <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2" aria-label="Slide 3"></button>
         </div>
+        <div class="carousel-inner">
+            <?php
+            include "proses/connect.php";
+            $query = mysqli_query($conn, "SELECT foto,judul,judul2,keterangan FROM tb_daftar_article WHERE id = '5'");
+            while ($hasil = mysqli_fetch_array($query)) {
+            ?>
+                <div class="carousel-item active">
+                    <a href="art5.php" class="stretched-link"> <img src="assets/img/<?php echo $hasil['foto'] ?>" class="d-block w-100" alt="...">
+                        <div class="carousel-caption ">
+                            <p><?php echo $hasil['judul'] ?></p>
+                        </div>
+                    </a>
+                </div>
+            <?php
+            }
+            ?>
+
+
+            <?php
+            include "proses/connect.php";
+            $query = mysqli_query($conn, "SELECT foto,judul FROM tb_daftar_article WHERE id = '6'");
+            while ($hasil = mysqli_fetch_array($query)) {
+            ?>
+                <div class="carousel-item">
+                    <a href="art6.php" class="stretched-link"><img src="assets/img/<?php echo $hasil['foto'] ?>" class="d-block w-100" alt="alain de botton">
+                        <div class="carousel-caption ">
+                            <p><?php echo $hasil['judul'] ?></p>
+                        </div>
+                    </a>
+                </div>
+            <?php
+            }
+            ?>
+
+            <?php
+            include "proses/connect.php";
+            $query = mysqli_query($conn, "SELECT foto,judul FROM tb_daftar_article WHERE id = '7'");
+            while ($hasil = mysqli_fetch_array($query)) {
+            ?>
+                <div class="carousel-item">
+                    <a href="art7.php" class="stretched-link"><img src="assets/img/<?php echo $hasil['foto'] ?>" class="d-block w-100" alt="epicurus">
+                        <div class="carousel-caption ">
+                            <p><?php echo $hasil['judul'] ?></p>
+                        </div>
+                    </a>
+                </div>
+            <?php
+            }
+            ?>
+        </div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Next</span>
+        </button>
     </div>
 </div>
 
 
-<div class="container">
+<div class="container mt-5">
     <div class="col">
 
 
         <?php
         include "proses/connect.php";
-        $query  = mysqli_query($conn, "SELECT foto,judul,keterangan,kategori FROM tb_daftar_article WHERE id = '2'");
+        $query  = mysqli_query($conn, "SELECT foto,judul,judul2,keterangan,kategori FROM tb_daftar_article WHERE id = '2'");
         while ($hasil = mysqli_fetch_array($query)) {
         ?>
             <div class="row">
@@ -53,9 +83,9 @@
                     <div class="row g-0 border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
                         <div class="col p-4 d-flex flex-column position-static">
                             <strong class="d-inline-block mb-2 text-primary">World</strong>
-                            <h3 class="mb-0">Filsafat</h3>
-                            <p class="card-text mb-auto"><?php echo $hasil["judul"]; ?></p>
-                            <a href="art1.php" class="stretched-link">Continue reading</a>
+                            <h4 class="mb-auto"><?php echo $hasil["judul"]; ?></h4>
+                            <h6 class="mb-auto text-secondary"><?php echo $hasil["judul2"]; ?></h6>
+                            <a href="art2.php" class="stretched-link">Continue reading</a>
                         </div>
                         <div class="col-auto d-none d-lg-block">
                             <img src="assets/img/<?php echo $hasil["foto"]; ?>" width="200" height="250" alt="">
@@ -68,25 +98,27 @@
 
 
 
-            <div class="col-md-6">
-                <div class="row g-0 border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
-                    <div class="col p-4 d-flex flex-column position-static">
-                        <strong class="d-inline-block mb-2 text-success">Design</strong>
-                        <h3 class="mb-0">Post title</h3>
-                        <div class="mb-1 text-muted">Nov 11</div>
-                        <p class="mb-auto">This is a wider card with supporting text below as a natural lead-in to additional content.</p>
-                        <a href="#" class="stretched-link">Continue reading</a>
-                    </div>
-                    <div class="col-auto d-none d-lg-block">
-                        <svg class="bd-placeholder-img" width="200" height="250" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false">
-                            <title>Placeholder</title>
-                            <rect width="100%" height="100%" fill="#55595c" /><text x="50%" y="50%" fill="#eceeef" dy=".3em">Thumbnail</text>
-                        </svg>
-
+            <?php
+            include "proses/connect.php";
+            $query  = mysqli_query($conn, "SELECT foto,judul,judul2,keterangan,kategori FROM tb_daftar_article WHERE id = '8'");
+            while ($hasil = mysqli_fetch_array($query)) {
+            ?>
+                <div class="col-md-6">
+                    <div class="row g-0 border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
+                        <div class="col p-4 d-flex flex-column position-static">
+                            <strong class="d-inline-block mb-2 text-success">Filsafat</strong>
+                            <h4 class="mb-auto"><?php echo $hasil["judul"]; ?></h4>
+                            <h6 class="mb-auto text-secondary"><?php echo $hasil["judul2"]; ?></h6>
+                            <a href="art8.php" class="stretched-link">Continue reading</a>
+                        </div>
+                        <div class="col-auto d-none d-lg-block">
+                            <img src="assets/img/<?php echo $hasil["foto"]; ?>" width="200" height="250" alt="">
+                        </div>
                     </div>
                 </div>
-            </div>
-
+            <?php
+            }
+            ?>
             </div>
     </div>
 </div>
@@ -95,171 +127,148 @@
     <!-- Three columns of text below the carousel -->
     <div class="row text-center mb-3">
         <div class="col">
-            <h1>Lorem ipsum dolor sit amet.</h1>
-            <h2>seketum waketum</h2>
+            <h2>"To live is To Suffer , To Survive is to Find</h2>
+            <h2>Some Meaning in The Suffering."</h2>
+            <h5 class="text-secondary">Friedrich Nietzsche</h5>
         </div>
     </div>
-    <div class=" mb-5 row row-cols-3 row-cols-md-3 g-4">
-        <div class="col-6 col-lg-3">
-            <div class="card h-100">
-                <img src="assets/img/bg3.jpg" alt="">
-                <div class="card-body">
-                    <a href="" class="stretched-link"></a>
-                    <h5 class="card-title">Card title</h5>
-                    <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-                </div>
-            </div>
-        </div>
-        <div class="col-6 col-lg-3">
-            <div class="card h-100">
-                <div class="card-body">
-                    <a href="" class="stretched-link"></a>
-                    <h5 class="card-title">Card title</h5>
-                    <p class="card-text">This card has supporting text below as a natural lead-in to additional content.</p>
-                </div>
-                <img src="assets/img/article1.png" alt="">
-            </div>
-        </div>
-        <div class="col-6 col-lg-3">
-            <div class="card h-100">
-                <img src="assets/img/bg3.jpg" alt="">
-                <a href="" class="stretched-link"></a>
-                <div class="card-body">
-                    <h5 class="card-title">Card title</h5>
-                    <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This card has even longer content than the first to show that equal height action.</p>
-                </div>
 
-            </div>
-        </div>
-        <div class="col-6 col-lg-3">
-            <div class="card h-100">
-                <a href="" class="stretched-link"></a>
-                <div class="card-body">
-                    <h5 class="card-title">Card title</h5>
-                    <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This card has even longer content than the first to show that equal height action.</p>
-                </div>
-                <img src="assets/img/article2.png" alt="">
-            </div>
-        </div>
-    </div>
-    <div class="row text-center mb-3">
+    <div class="container mt-5">
         <div class="col">
-            <h1>Lorem, ipsum dolor.</h1>
-            <h2>seketum waketum</h2>
-        </div>
-    </div>
-    <!-- START THE FEATURETTES -->
-
-    <?php
-    include "proses/connect.php";
-    $query  = mysqli_query($conn, "SELECT foto,judul,keterangan FROM tb_daftar_article WHERE id = '4'");
-    while ($hasil = mysqli_fetch_array($query)) {
-
-    ?>
-        <hr class="featurette-divider mb-3 ">
-        <div class="row featurette mb-3 border rounded overflow-hidden shadow-sm h-md-250 position-relative">
-            <div class="col-md-7 mt-2">
-                <h2 class="featurette-heading fw-normal lh-1"><?php echo $hasil["judul"]; ?> <span class="text-muted">It’ll blow your mind.</span></h2>
-                <p class="lead" style="overflow: hidden; white-space: nowrap; text-overflow: ellipsis;"><?php echo $hasil["keterangan"]; ?>.</p>
-                <a href="art1.php" class="stretched-link"></a>
-            </div>
-            <div class="col-md-5 mt-2 mb-3">
-                <img src="assets/img/<?php echo $hasil['foto'] ?>" width="500" height="500" class="img-thumbnail" alt="...">
-                </svg>
-
-            </div>
-        </div>
-    <?php
-    }
-    ?>
-    <hr class="featurette-divider">
-
-    <div class="row featurette">
-        <div class="col-md-7 order-md-2">
-            <h2 class="featurette-heading fw-normal lh-1">Oh yeah, it’s that good. <span class="text-muted">See for yourself.</span></h2>
-            <p class="lead">Another featurette? Of course. More placeholder content here to give you an idea of how this layout would work with some actual real-world content in place.</p>
-        </div>
-        <div class="col-md-5 order-md-1">
-            <svg class="bd-placeholder-img bd-placeholder-img-lg featurette-image img-fluid mx-auto" width="500" height="500" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: 500x500" preserveAspectRatio="xMidYMid slice" focusable="false">
-                <title>Placeholder</title>
-                <rect width="100%" height="100%" fill="#eee" /><text x="50%" y="50%" fill="#aaa" dy=".3em">500x500</text>
-            </svg>
-
-        </div>
-    </div>
-
-    <hr class="featurette-divider">
-
-    <div class="row featurette">
-        <div class="col-md-7">
-            <h2 class="featurette-heading fw-normal lh-1">And lastly, this one. <span class="text-muted">Checkmate.</span></h2>
-            <p class="lead">And yes, this is the last block of representative placeholder content. Again, not really intended to be actually read, simply here to give you a better view of what this would look like with some actual content. Your content.</p>
-        </div>
-        <div class="col-md-5">
-            <svg class="bd-placeholder-img bd-placeholder-img-lg featurette-image img-fluid mx-auto" width="500" height="500" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: 500x500" preserveAspectRatio="xMidYMid slice" focusable="false">
-                <title>Placeholder</title>
-                <rect width="100%" height="100%" fill="#eee" /><text x="50%" y="50%" fill="#aaa" dy=".3em">500x500</text>
-            </svg>
-
-        </div>
-    </div>
-
-    <hr class="featurette-divider">
-
-    <!-- /END THE FEATURETTES -->
-
-</div><!-- /.container -->
-
-
-
-
-<!--card start-->
-<div class="container">
-
-    <div class="row text-center mb-3">
-        <div class="col">
-            <h2>lorem ipsum parabelum</h2>
-            <h2>seketum waketum</h2>
-        </div>
-    </div>
-    <div class="row row-cols-3 row-cols-md-3 g-4 mb-3">
-        <div class="col-6 col-lg-3">
-            <div class="card h-100">
-
-                <div class="card-body">
-                    <h5 class="card-title">Card title</h5>
-                    <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-                </div>
+            <div class=" mb-5 row row-cols-3 row-cols-md-3 g-4">
+                <?php
+                include "proses/connect.php";
+                $query  = mysqli_query($conn, "SELECT foto,judul,judul2,keterangan,kategori FROM tb_daftar_article WHERE id = '9'");
+                while ($hasil = mysqli_fetch_array($query)) {
+                ?>
+                    <div class=" col-6 col-lg-6">
+                        <div class="card h-100">
+                            <img src="assets/img/<?php echo $hasil["foto"]; ?>" alt="">
+                            <div class="card-body">
+                                <a href="art9.php" class="stretched-link"></a>
+                                <h5 class="card-title"><?php echo $hasil["judul"]; ?></h5>
+                                <p class="card-text"><?php echo $hasil["judul2"]; ?></p>
+                            </div>
+                        </div>
+                    <?php
+                }
+                    ?>
+                    </div>
+                    <?php
+                    include "proses/connect.php";
+                    $query  = mysqli_query($conn, "SELECT foto,judul,judul2,keterangan,kategori FROM tb_daftar_article WHERE id = '10'");
+                    while ($hasil = mysqli_fetch_array($query)) {
+                    ?>
+                        <div class=" col-6 col-lg-6">
+                            <div class="card h-100">
+                                <img src="assets/img/<?php echo $hasil["foto"]; ?>" alt="">
+                                <div class="card-body">
+                                    <a href="art10.php" class="stretched-link"></a>
+                                    <h5 class="card-title"><?php echo $hasil["judul"]; ?></h5>
+                                    <p class="card-text"><?php echo $hasil["judul2"]; ?></p>
+                                </div>
+                            </div>
+                        <?php
+                    }
+                        ?>
+                        </div>
+                        <?php
+                        include "proses/connect.php";
+                        $query  = mysqli_query($conn, "SELECT foto,judul,judul2,keterangan,kategori FROM tb_daftar_article WHERE id = '11'");
+                        while ($hasil = mysqli_fetch_array($query)) {
+                        ?>
+                            <div class="col-6 col-lg-6">
+                                <div class="card h-100">
+                                    <div class="card-body">
+                                        <a href="art11.php" class="stretched-link"></a>
+                                        <h5 class="card-title"><?php echo $hasil["judul"]; ?></h5>
+                                        <p class="card-text"><?php echo $hasil["judul2"]; ?></p>
+                                    </div>
+                                    <img height="" src="assets/img/<?php echo $hasil["foto"]; ?>" alt="">
+                                </div>
+                            <?php
+                        }
+                            ?>
+                            </div>
 
             </div>
-        </div>
-        <div class="col-6 col-lg-3">
-            <div class="card h-100">
-                <div class="card-body">
-                    <h5 class="card-title">Card title</h5>
-                    <p class="card-text">This card has supporting text below as a natural lead-in to additional content.</p>
-                </div>
-
-            </div>
-        </div>
-        <div class="col-6 col-lg-3">
-            <div class="card h-100">
-                <div class="card-body">
-                    <h5 class="card-title">Card title</h5>
-                    <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This card has even longer content than the first to show that equal height action.</p>
-                </div>
-
-            </div>
-        </div>
-        <div class="col-6 col-lg-3">
-            <div class="card h-100">
-                <div class="card-body">
-                    <h5 class="card-title">Card title</h5>
-                    <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This card has even longer content than the first to show that equal height action.</p>
+            <div class="row text-center mb-3">
+                <div class="col">
+                    <h2>"Kepanikan adalah Separuh Penyakit. <br>Ketenangan Adalah separuh Obat <br>Kesabaran Adalah Permulaan Kesembuhan"</h2>
+                    <h5 class="text-secondary">Ibnu Sina</h5>
                 </div>
             </div>
-        </div>
-    </div>
+            <!-- START THE FEATURETTES -->
 
-</div>
-<!--card start-->
+            <?php
+            include "proses/connect.php";
+            $query  = mysqli_query($conn, "SELECT foto,judul,keterangan FROM tb_daftar_article WHERE id = '4'");
+            while ($hasil = mysqli_fetch_array($query)) {
+
+            ?>
+                <div class="row featurette mt-5 mb-3 border rounded overflow-hidden shadow-sm h-md-250 position-relative">
+                    <div class="col-md-7 mt-2">
+                        <h2 class="featurette-heading fw-normal lh-1"><?php echo $hasil["judul"]; ?></h2>
+                        <p class="lead" style="overflow: hidden; white-space: nowrap; text-overflow: ellipsis;"><?php echo $hasil["keterangan"]; ?>.</p>
+                        <a href="art1.php" class="stretched-link"></a>
+                    </div>
+                    <div class="col-md-5 mt-2 mb-3">
+                        <img src="assets/img/<?php echo $hasil['foto'] ?>" width="500" height="500" class="img-thumbnail" alt="...">
+                    </div>
+                </div>
+            <?php
+            }
+            ?>
+
+
+            <?php
+            include "proses/connect.php";
+            $query  = mysqli_query($conn, "SELECT foto,judul,keterangan FROM tb_daftar_article WHERE id = '12'");
+            while ($hasil = mysqli_fetch_array($query)) {
+            ?>
+                <div class="row featurette mt-5 mb-3 border rounded overflow-hidden shadow-sm h-md-250 position-relative">
+                    <div class="col-md-5 mt-2 mb-3">
+                        <img src="assets/img/<?php echo $hasil['foto'] ?>" width="500" height="500" class="img-thumbnail" alt="...">
+                    </div>
+                    <div class="col-md-7 mt-2">
+                        <h2 class="featurette-heading fw-normal lh-1"><?php echo $hasil["judul"]; ?></h2>
+                        <p class="lead" style="overflow: hidden; white-space: nowrap; text-overflow: ellipsis;"><?php echo $hasil["keterangan"]; ?>.</p>
+                        <a href="art12.php" class="stretched-link"></a>
+                    </div>
+                </div>
+            <?php
+            }
+            ?>
+
+
+
+
+            <?php
+            include "proses/connect.php";
+            $query  = mysqli_query($conn, "SELECT foto,judul,keterangan FROM tb_daftar_article WHERE id = '13'");
+            while ($hasil = mysqli_fetch_array($query)) {
+            ?>
+                <div class="row featurette mt-5 mb-3 border rounded overflow-hidden shadow-sm h-md-250 position-relative">
+                    <div class="col-md-7 mt-2">
+                        <h2 class="featurette-heading fw-normal lh-1"><?php echo $hasil["judul"]; ?></h2>
+                        <p class="lead" style="overflow: hidden; white-space: nowrap; text-overflow: ellipsis;"><?php echo $hasil["keterangan"]; ?>.</p>
+                        <a href="art13.php" class="stretched-link"></a>
+                    </div>
+                    <div class="col-md-5 mt-2 mb-3">
+                        <img src="assets/img/<?php echo $hasil['foto'] ?>" width="500" height="500" class="img-thumbnail" alt="...">
+                    </div>
+                </div>
+            <?php
+            }
+            ?>
+        </div>
+
+
+        <div class="container">
+            <div class="row text-center mb-3">
+                <div class="col">
+                    <h3>"Seseorang yang tak tahu, dan tak tahu kalu dirinya tidak tahu,<br> Orang itu selamanya berada dalam kebodohan didalam kebodohan"</h3>
+                    <h5 class="text-secondary">Jalaluddin Rumi</h5>
+                </div>
+            </div>
+        </div>

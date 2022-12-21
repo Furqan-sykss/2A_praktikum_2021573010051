@@ -40,12 +40,9 @@ $hasil = mysqli_fetch_array($query);
     <!-- End Container Sidebar & Content -->
 
     <!-- Footer -->
-    <div class=" mt-5 container-fluid  bg-light ">
-        <div class="card text-center border-0 mb-2">
-            <i> Furqan || AMERTA</i>
-        </div>
-        <!-- End Footer -->
-    </div>
+    <?php
+    include "footer.php";
+    ?>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous"></script>
     <script>
         // Example starter JavaScript for disabling form submissions if there are invalid fields
