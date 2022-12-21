@@ -10,7 +10,7 @@ while ($record = mysqli_fetch_array($query)) {
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css">
 <div class="container text-center ">
 
-    <div class="col-lg-9 mt-2">
+    <div class="col-12 mt-2">
         <div class="card">
             <div class="card-header">
                 Halaman User
