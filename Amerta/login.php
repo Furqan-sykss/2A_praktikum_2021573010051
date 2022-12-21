@@ -107,6 +107,10 @@ if (!empty($_SESSION['username'])) {
                 </label>
             </div>
             <button class="w-100 btn btn-lg btn-primary" type="submit" name="submit_validate" value="abc">Login</button>
+            <div class="mt-3">
+                <p class="mb-0  text-center">Hari gini masih belum punya akun? <a href="register" class="text-primary fw-bold">Nih Sign
+                        Up</a></p>
+            </div>
             <p class="mt-5 mb-3  text-light">&copy; 2022–2023</p>
         </form>
     </main>
