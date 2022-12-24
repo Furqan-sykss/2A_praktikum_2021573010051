@@ -13,7 +13,7 @@ $select_kategori = mysqli_query($conn, "SELECT id_kat_article,kategori_article f
         <div class="card">
             <div class="card-header">
                 <b>
-                    <h5>Halaman Menu</h5>
+                    <h5>Halaman Category Article</h5>
                 </b>
             </div>
             <div class="card-body">
